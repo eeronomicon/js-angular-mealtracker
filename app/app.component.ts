@@ -12,8 +12,13 @@ import { Food } from './food.model';
       (newFoodSender)="addFoodItem($event)"
     ></food-new>
     <food-edit
+      [selectedFoodItem]="selectedFoodItem"
       (doneEditFoodItemSender)="editFoodItemComplete()"
     ></food-edit>
+    <food-list *ngIf="allFoods.length > 0"
+      [childFoodList]="allFoods"
+      (clickEditSender)="editFoodItem($event)"
+    ></food-list>
   </div>
   `
 })
@@ -21,11 +26,17 @@ import { Food } from './food.model';
 export class AppComponent {
   public allFoods: Food[] = [];
 
+  selectedFoodItem: Food = null;
+
   addFoodItem(newFoodItem: Food) {
     this.allFoods.push(newFoodItem);
   }
 
-  editFoodItemComplete() {
+  editFoodItem(foodItemToEdit: Food) {
+    this.selectedFoodItem = foodItemToEdit;
+  }
 
+  editFoodItemComplete() {
+    this.selectedFoodItem = null;
   }
 }
