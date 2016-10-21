@@ -24,7 +24,7 @@ export class FoodStatsComponent {
   calculateCaloriesTotal(childFoodList: Food[]) {
     var totalCalories = 0;
     for (var i = 0; i < childFoodList.length; i++) {
-      totalCalories += childFoodList[i].calories;
+      totalCalories += parseInt(childFoodList[i].calories.toString());
     }
     return totalCalories;
   }

@@ -28,8 +28,8 @@ import { Food } from './food.model';
 
 export class FoodNewComponent {
   @Output() newFoodSender = new EventEmitter();
-  addClicked(description: string, calories, notes: string) {
-    var newFoodToAdd: Food = new Food(description, parseInt(calories), notes);
+  addClicked(description: string, calories: number, notes: string) {
+    var newFoodToAdd: Food = new Food(description,calories, notes);
     this.newFoodSender.emit(newFoodToAdd);
   }
 }
