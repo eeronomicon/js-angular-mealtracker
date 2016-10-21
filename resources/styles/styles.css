@@ -1,6 +1,11 @@
 body {
   font-family: 'Neucha', cursive;
-  font-size: 1.8em;
+  font-size: 2em;
+  padding-bottom: 40px;
+}
+
+food-new, food-edit {
+  font-size: 0.8em;
 }
 
 .cccc_image {

@@ -6,15 +6,15 @@ import { Food } from './food.model';
   template: `
     <h3>New Meal Item</h3>
     <div class="form-group">
-      <label>What did you eat?</label>
+      <label>What did you not share with your dog?</label>
       <input #newDescription  class="form-control">
     </div>
     <div class="form-group">
-      <label>How many calories did it contain?</label>
+      <label>How many delicious, guilt-laden calories did it contain?</label>
       <input #newCalories  class="form-control">
     </div>
     <div class="form-group">
-      <label>Any notes and comments?</label>
+      <label>What do you have to say for yourself, selfish Hoomin?</label>
       <input #newNotes class="form-control">
     </div>
     <button class="btn btn-primary" (click)="
@@ -28,8 +28,8 @@ import { Food } from './food.model';
 
 export class FoodNewComponent {
   @Output() newFoodSender = new EventEmitter();
-  addClicked(description: string, calories: number, notes: string) {
-    var newFoodToAdd: Food = new Food(description, calories, notes);
+  addClicked(description: string, calories, notes: string) {
+    var newFoodToAdd: Food = new Food(description, parseInt(calories), notes);
     this.newFoodSender.emit(newFoodToAdd);
   }
 }
