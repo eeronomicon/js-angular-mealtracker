@@ -11,6 +11,9 @@ import { Food } from './food.model';
     <food-new
       (newFoodSender)="addFoodItem($event)"
     ></food-new>
+    <food-edit
+      (doneEditFoodItemSender)="editFoodItemComplete()"
+    ></food-edit>
   </div>
   `
 })
@@ -20,7 +23,9 @@ export class AppComponent {
 
   addFoodItem(newFoodItem: Food) {
     this.allFoods.push(newFoodItem);
-    console.log(this.allFoods);
   }
 
+  editFoodItemComplete() {
+
+  }
 }
