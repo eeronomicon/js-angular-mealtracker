@@ -35,12 +35,7 @@ import { Food } from './food.model';
 })
 
 export class AppComponent {
-  public allFoods: Food[] = [
-    // new Food("Chicken Fried Chicken", 650, "If it ain't fried, I ain't eatin' it."),
-    // new Food("Soda", 350, "High-fructose corn syrup. Yum."),
-    // new Food("Soft Serve Ice Cream", 400, "Only half a cup."),
-    // new Food("Mac & Cheese", 500, "Isn't this considered a vegetable?")
-  ];
+  public allFoods: Food[] = [];
 
   selectedFoodItem: Food = null;
 

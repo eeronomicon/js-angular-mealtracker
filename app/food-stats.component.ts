@@ -30,7 +30,9 @@ export class FoodStatsComponent {
   }
 
   displayCaloriesAverage(childFoodList: Food[]) {
-    return (this.calculateCaloriesTotal(childFoodList) / childFoodList.length).toFixed(0);
+    var totalCalories = this.calculateCaloriesTotal(childFoodList);
+    return (totalCalories === 0 ? 0 : (totalCalories / childFoodList.length).toFixed(0));
+
   }
 
 }
