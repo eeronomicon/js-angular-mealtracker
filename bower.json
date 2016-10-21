@@ -1,0 +1,20 @@
+{
+  "name": "curiouscaninescaloriecounter",
+  "description": "",
+  "main": "",
+  "authors": [
+    "HK Kahng <hk@router-rooter.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
