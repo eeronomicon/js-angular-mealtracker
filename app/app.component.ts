@@ -8,10 +8,10 @@ import { Food } from './food.model';
     <div class="jumbotron">
       <h2>Curious Canines' Calorie Counter*</h2>
     </div>
-    <food-new
+    <food-new  *ngIf="!selectedFoodItem"
       (newFoodSender)="addFoodItem($event)"
     ></food-new>
-    <food-edit
+    <food-edit *ngIf="selectedFoodItem"
       [selectedFoodItem]="selectedFoodItem"
       (doneEditFoodItemSender)="editFoodItemComplete()"
     ></food-edit>
@@ -24,7 +24,12 @@ import { Food } from './food.model';
 })
 
 export class AppComponent {
-  public allFoods: Food[] = [];
+  public allFoods: Food[] = [
+    new Food("Chicken Fried Chicken", 650, "If it ain't fried, I ain't eatin' it."),
+    new Food("Soda", 350, "High-fructose corn syrup. Yum."),
+    new Food("Soft Serve Ice Cream", 400, "Only half a cup."),
+    new Food("Mac & Cheese", 500, "Isn't this considered a vegetable?")
+  ];
 
   selectedFoodItem: Food = null;
 
