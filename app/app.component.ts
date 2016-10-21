@@ -5,16 +5,22 @@ import { Food } from './food.model';
   selector: 'my-app',
   template: `
   <div class="container">
-    <div class="jumbotron">
-      <h2>Curious Canines' Calorie Counter*</h2>
+    <h1>Curious Canines' Calorie Counter*</h1>
+    <p>* Note that this isn't an app to track what your furry friends eat, it's more the other way around. ;)</p>
+    <div class="row">
+      <div class="col-xs-4 cccc_image">
+        <img src="/resources/images/cccc.jpg" class="cccc_image">
+      </div>
+      <div class="col-xs-8">
+        <food-new  *ngIf="!selectedFoodItem"
+          (newFoodSender)="addFoodItem($event)"
+        ></food-new>
+        <food-edit *ngIf="selectedFoodItem"
+          [selectedFoodItem]="selectedFoodItem"
+          (doneEditFoodItemSender)="editFoodItemComplete()"
+        ></food-edit>
+      </div>
     </div>
-    <food-new  *ngIf="!selectedFoodItem"
-      (newFoodSender)="addFoodItem($event)"
-    ></food-new>
-    <food-edit *ngIf="selectedFoodItem"
-      [selectedFoodItem]="selectedFoodItem"
-      (doneEditFoodItemSender)="editFoodItemComplete()"
-    ></food-edit>
     <food-list *ngIf="allFoods.length > 0"
       [childFoodList]="allFoods"
       (clickEditSender)="editFoodItem($event)"

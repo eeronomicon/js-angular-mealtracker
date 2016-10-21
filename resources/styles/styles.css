@@ -2,3 +2,11 @@ body {
   font-family: 'Neucha', cursive;
   font-size: 1.8em;
 }
+
+.cccc_image {
+  min-width: 300px;
+}
+
+.cccc_image img {
+  margin-top: 20px;
+}
