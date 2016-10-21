@@ -1,4 +1,4 @@
-# _{Curious Canines' Calorie Counter}_
+# _Curious Canines' Calorie Counter_
 
 #### _Epicodus JavaScript Week 2 Independent Project, 21 October 2016_
 
@@ -7,6 +7,8 @@
 ## Description
 
 Exercise Requirements: Create a meal tracking application. Users should be able to log foods they've eaten each day, including details about the meal and its number of calories. You may assume foods being logged are for a single day (you are not required to keep track of multiple days' meals).
+
+Note: This app is named thus, as it's not you counting your pooch's caloric intake; rather, it's the other way around. :)
 
 ## Setup/Installation Requirements
 

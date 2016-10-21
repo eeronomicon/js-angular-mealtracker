@@ -1,14 +1,26 @@
 import { Component } from '@angular/core';
+import { Food } from './food.model';
 
 @Component({
   selector: 'my-app',
   template: `
   <div class="container">
-    <h1>My First Angular 2 App</h1>
+    <div class="jumbotron">
+      <h2>Curious Canines' Calorie Counter*</h2>
+    </div>
+    <food-new
+      (newFoodSender)="addFoodItem($event)"
+    ></food-new>
   </div>
   `
 })
 
 export class AppComponent {
+  public allFoods: Food[] = [];
+
+  addFoodItem(newFoodItem: Food) {
+    this.allFoods.push(newFoodItem);
+    console.log(this.allFoods);
+  }
 
 }
