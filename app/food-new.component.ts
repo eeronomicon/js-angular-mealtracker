@@ -5,7 +5,7 @@ declare var moment: any;
 @Component({
   selector: 'food-new',
   template: `
-    <h3>New Meal Item</h3>
+    <h3>New Food Item Entry</h3>
     <div class="form-group">
       <label>What did you not share with your dog?</label>
       <input #newDescription  class="form-control">

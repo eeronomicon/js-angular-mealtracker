@@ -6,9 +6,18 @@ declare var moment: any;
   selector: 'my-app',
   template: `
   <div class="container">
-    <h1>Curious Canines' Calorie Counter*</h1>
-    <p>* No, this isn't an app to track what your furry friends eat; it's the other way around! ;-)</p>
     <div class="row">
+      <div class="col-xs-8">
+        <h1>Curious Canines' Calorie Counter*</h1>
+        <p>* No, this isn't an app to track what your furry friends eat; it's the other way around! ;-)</p>
+        <food-list *ngIf="allFoods.length > 0"
+          [childFoodList]="allFoods"
+          (clickEditSender)="editFoodItem($event)"
+        ></food-list>
+        <food-stats *ngIf="allFoods.length > 0"
+          [childFoodList]="allFoods"
+        ></food-stats>
+      </div>
       <div class="col-xs-4 cccc-image-holder">
         <img src="/resources/images/cccc.jpg">
         <food-new *ngIf="!selectedFoodItem"
@@ -18,15 +27,6 @@ declare var moment: any;
           [selectedFoodItem]="selectedFoodItem"
           (doneEditFoodItemSender)="editFoodItemComplete()"
         ></food-edit>
-      </div>
-      <div class="col-xs-8">
-        <food-list *ngIf="allFoods.length > 0"
-          [childFoodList]="allFoods"
-          (clickEditSender)="editFoodItem($event)"
-        ></food-list>
-        <food-stats *ngIf="allFoods.length > 0"
-          [childFoodList]="allFoods"
-        ></food-stats>
       </div>
     </div>
   </div>
