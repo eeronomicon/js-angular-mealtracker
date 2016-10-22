@@ -12,14 +12,17 @@ import { CaloriesPipe } from './calories.pipe';
     <option value="High">500 Calories or More</option>
   </select>
   <hr>
-  <div class="row">
+  <div class="row food-list-row">
+    <div class="col-xs-2">
+      <p>Date</p>
+    </div>
     <div class="col-xs-3">
       <p>Description</p>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-1">
       <p>Calories</p>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-5">
       <p>Notes and Comments</p>
     </div>
     <div class="col-xs-1 text-right">
@@ -27,13 +30,16 @@ import { CaloriesPipe } from './calories.pipe';
     </div>
   </div>
   <div *ngFor="let currentFoodItem of childFoodList | calories:caloriesFilterSetting" class="row">
+    <div class="col-xs-2">
+      <p>{{ currentFoodItem.dateStamp }}</p>
+    </div>
     <div class="col-xs-3">
       <p>{{ currentFoodItem.description }}</p>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-1">
       <p>{{ currentFoodItem.calories }}</p>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-5">
       <p>{{ currentFoodItem.notes }}</p>
     </div>
     <div class="col-xs-1 text-right">

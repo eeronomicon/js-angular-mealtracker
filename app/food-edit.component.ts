@@ -11,7 +11,11 @@ import { Food } from './food.model';
     </div>
     <div class="form-group">
       <label>Edit item's calories:</label>
-      <input [(ngModel)]="selectedFoodItem.calories" class="form-control">
+      <input [(ngModel)]="selectedFoodItem.calories" class="form-control" type="number">
+    </div>
+    <div class="form-group">
+      <label>Edit date and time stamp:</label>
+      <input [(ngModel)]="selectedFoodItem.dateStamp" class="form-control">
     </div>
     <div class="form-group">
       <label>Edit notes and comments:</label>
@@ -26,6 +30,7 @@ import { Food } from './food.model';
 export class FoodEditComponent {
   @Input() selectedFoodItem: Food;
   @Output() doneEditFoodItemSender = new EventEmitter();
+
   doneClicked() {
     this.doneEditFoodItemSender.emit();
   }

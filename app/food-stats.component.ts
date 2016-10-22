@@ -4,7 +4,7 @@ import { Food } from './food.model';
 @Component({
   selector: 'food-stats',
   template: `
-  <div class="row">
+  <div class="row food-list-row">
     <div class="col-xs-4">
       <p>Items Consumed: {{ childFoodList.length }}</p>
     </div>

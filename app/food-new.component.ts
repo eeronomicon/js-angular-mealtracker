@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Food } from './food.model';
+declare var moment: any;
 
 @Component({
   selector: 'food-new',
@@ -11,25 +12,33 @@ import { Food } from './food.model';
     </div>
     <div class="form-group">
       <label>How many delicious, guilt-laden calories did it contain?</label>
-      <input #newCalories  class="form-control">
+      <input #newCalories  class="form-control" type="number">
+    </div>
+    <div class="form-group">
+      <label>When did you consume this delightful nugget (which you did not share with your dog)?</label>
+      <input #newDateStamp class="form-control" placeholder="{{ dateNow }}">
     </div>
     <div class="form-group">
       <label>What do you have to say for yourself, selfish Hoomin?</label>
       <input #newNotes class="form-control">
     </div>
     <button class="btn btn-primary" (click)="
-      addClicked(newDescription.value, newCalories.value, newNotes.value);
+      addClicked(newDescription.value, newCalories.value, newNotes.value, newDateStamp.value);
       newDescription.value='';
       newCalories.value='';
       newNotes.value='';
+      newDateStamp.value='';
       ">Add</button>
   `
 })
 
 export class FoodNewComponent {
   @Output() newFoodSender = new EventEmitter();
-  addClicked(description: string, calories: number, notes: string) {
-    var newFoodToAdd: Food = new Food(description,calories, notes);
+
+  public dateNow: string = moment().format("MM-DD-YYYY");
+
+  addClicked(description: string, calories: number, notes: string, dateStamp: string) {
+    var newFoodToAdd: Food = new Food(description,calories, notes, moment(dateStamp).format("MM-DD-YYYY"));
     this.newFoodSender.emit(newFoodToAdd);
   }
 }

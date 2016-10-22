@@ -8,10 +8,18 @@ food-new, food-edit {
   font-size: 0.8em;
 }
 
-.cccc_image {
-  min-width: 300px;
+.cccc-image-holder {
+  width: 330px;
 }
 
-.cccc_image img {
+.cccc-image-holder img {
+  width: 300px;
   margin-top: 20px;
+}
+
+.food-list-row {
+  background-color: #FF851B;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  color: white;
 }

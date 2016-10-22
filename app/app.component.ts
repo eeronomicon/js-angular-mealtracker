@@ -7,16 +7,11 @@ declare var moment: any;
   template: `
   <div class="container">
     <h1>Curious Canines' Calorie Counter*</h1>
-    <p>* No, this isn't an app to track what your furry friends eat; it's more the other way around! ;)</p>
-    <hr>
-    <h3>{{ nao }}</h3>
-    <hr>
+    <p>* No, this isn't an app to track what your furry friends eat; it's the other way around! ;-)</p>
     <div class="row">
-      <div class="col-xs-4 cccc_image">
-        <img src="/resources/images/cccc.jpg" class="cccc_image">
-      </div>
-      <div class="col-xs-8">
-        <food-new  *ngIf="!selectedFoodItem"
+      <div class="col-xs-4 cccc-image-holder">
+        <img src="/resources/images/cccc.jpg">
+        <food-new *ngIf="!selectedFoodItem"
           (newFoodSender)="addFoodItem($event)"
         ></food-new>
         <food-edit *ngIf="selectedFoodItem"
@@ -24,22 +19,27 @@ declare var moment: any;
           (doneEditFoodItemSender)="editFoodItemComplete()"
         ></food-edit>
       </div>
+      <div class="col-xs-8">
+        <food-list *ngIf="allFoods.length > 0"
+          [childFoodList]="allFoods"
+          (clickEditSender)="editFoodItem($event)"
+        ></food-list>
+        <food-stats *ngIf="allFoods.length > 0"
+          [childFoodList]="allFoods"
+        ></food-stats>
+      </div>
     </div>
-    <food-list *ngIf="allFoods.length > 0"
-      [childFoodList]="allFoods"
-      (clickEditSender)="editFoodItem($event)"
-    ></food-list>
-    <hr>
-    <food-stats
-      [childFoodList]="allFoods"
-    ></food-stats>
   </div>
   `
 })
 
 export class AppComponent {
-  public allFoods: Food[] = [];
-  public nao: string = moment().format("MM-DD-YYYY hh:mm A");
+  public allFoods: Food[] = [
+    new Food("Fried Chicken", 610, "Sorry, not for you; chicken bones", moment("2016-10-20").format("MM-DD-YYYY")),
+    new Food("Onion Rings", 400, "Definitely not for dogs!", moment("2016-10-20").format("MM-DD-YYYY")),
+    new Food("Chocolate Cake", 500, "Dogs and chocolate? No way!", moment("2016-10-20").format("MM-DD-YYYY")),
+    new Food("Diet Coke", 0, "Sorry, not for dogs, either.", moment("2016-10-20").format("MM-DD-YYYY"))
+  ];
 
   selectedFoodItem: Food = null;
 
