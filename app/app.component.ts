@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Food } from './food.model';
+declare var moment: any;
 
 @Component({
   selector: 'my-app',
@@ -7,6 +8,8 @@ import { Food } from './food.model';
   <div class="container">
     <h1>Curious Canines' Calorie Counter*</h1>
     <p>* No, this isn't an app to track what your furry friends eat; it's more the other way around! ;)</p>
+    <hr>
+    <h3>{{ nao }}</h3>
     <hr>
     <div class="row">
       <div class="col-xs-4 cccc_image">
@@ -36,6 +39,7 @@ import { Food } from './food.model';
 
 export class AppComponent {
   public allFoods: Food[] = [];
+  public nao: string = moment().format("MM-DD-YYYY hh:mm A");
 
   selectedFoodItem: Food = null;
 
