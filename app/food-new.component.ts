@@ -11,7 +11,7 @@ import { Food } from './food.model';
     </div>
     <div class="form-group">
       <label>How many delicious, guilt-laden calories did it contain?</label>
-      <input #newCalories  class="form-control">
+      <input #newCalories  class="form-control" type="number">
     </div>
     <div class="form-group">
       <label>What do you have to say for yourself, selfish Hoomin?</label>
@@ -29,7 +29,11 @@ import { Food } from './food.model';
 export class FoodNewComponent {
   @Output() newFoodSender = new EventEmitter();
   addClicked(description: string, calories: number, notes: string) {
-    var newFoodToAdd: Food = new Food(description,calories, notes);
-    this.newFoodSender.emit(newFoodToAdd);
+    if (description && calories && notes) {
+      var newFoodToAdd: Food = new Food(description,calories, notes);
+      this.newFoodSender.emit(newFoodToAdd);
+    } else {
+      alert('We hope you fill your dog\'s bowl better than how you fill out forms. Please fill in all the blanks.');
+    }
   }
 }

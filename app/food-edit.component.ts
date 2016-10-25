@@ -11,7 +11,7 @@ import { Food } from './food.model';
     </div>
     <div class="form-group">
       <label>Edit item's calories:</label>
-      <input [(ngModel)]="selectedFoodItem.calories" class="form-control">
+      <input [(ngModel)]="selectedFoodItem.calories" class="form-control" type="number">
     </div>
     <div class="form-group">
       <label>Edit notes and comments:</label>
